@@ -192,6 +192,10 @@ elif selected_option == "Visualizations":
             st.write("Display a scatter plot here.")
             
             df = pd.read_csv('Sales Data.csv')
+            
+            grouped = df[['Product', 'Price Each', 'Sales','Quantity Ordered']]
+            grouped = df.groupby('Product').agg({ 'Price Each': 'sum', 'Sales': 'sum', 'Quantity Ordered': 'sum' }).reset_index()
+            grouped['Profit margin'] = ((grouped['Sales'] - grouped['Price Each']) / grouped['Sales']*100) 
 
             
             
