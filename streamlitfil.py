@@ -193,22 +193,11 @@ elif selected_option == "Visualizations":
             lb=LabelEncoder()
             df = pd.read_csv('Sales Data.csv')
 
-            grouped = df[['Product', 'Price Each', 'Sales','Quantity Ordered']]
-
-            grouped = df.groupby('Product').agg({ 'Price Each': 'sum', 'Sales': 'sum', 'Quantity Ordered': 'sum' }).reset_index()
-
-            grouped.rename(columns={'Quantity Ordered':'ORDERS'},inplace=True)
-
             
             
-            grouped['Profit margin'] = ((grouped['Sales'] - grouped['Price Each']) / grouped['Sales']*100) 
 
-            grouped["Product"] = lb.fit_transform(grouped["Product"])
-         
-            
-
-            ##fig8 = px.scatter_matrix(grouped, dimensions=["Product", "Price Each", "Sales", "ORDERS", "Profit margin"])
-            ##fig8.update_traces(marker=dict(color="green"), selector=dict(mode="markers"))
+            fig8 = px.scatter_matrix(df, dimensions=["Product", "Price Each", "Sales", "ORDERS", "Profit margin"])
+            fig8.update_traces(marker=dict(color="green"), selector=dict(mode="markers"))
 
 
             ##st.title("Scatter Matrix Plot")
