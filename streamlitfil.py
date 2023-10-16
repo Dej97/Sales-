@@ -221,7 +221,7 @@ elif selected_option == "Visualizations":
 
             st.title("Scatter Matrix Plot")
             st.plotly_chart(fig8)
-            print(grouped.head())
+            
     elif visualization_option == "HeatMap":
          
             # Create a HeatMap
