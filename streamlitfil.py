@@ -190,7 +190,7 @@ elif selected_option == "Visualizations":
          
             # Create a scatter plot
             st.write("Display a scatter plot here.")
-            lb=LabelEncoder()
+            
             df = pd.read_csv('Sales Data.csv')
 
             
