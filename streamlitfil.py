@@ -205,12 +205,12 @@ elif selected_option == "Visualizations":
          
             
 
-            fig8 = px.scatter_matrix(grouped, dimensions=["Product", "Price Each", "Sales", "ORDERS", "Profit margin"])
-            fig8.update_traces(marker=dict(color="green"), selector=dict(mode="markers"))
+            ##fig8 = px.scatter_matrix(grouped, dimensions=["Product", "Price Each", "Sales", "ORDERS", "Profit margin"])
+            ##fig8.update_traces(marker=dict(color="green"), selector=dict(mode="markers"))
 
 
-            st.title("Scatter Matrix Plot")
-            st.plotly_chart(fig8)
+            ##st.title("Scatter Matrix Plot")
+            ##st.plotly_chart(fig8)
 
     elif visualization_option == "HeatMap":
          
@@ -252,28 +252,28 @@ elif selected_option == "Visualizations":
             
 
           
-            correlation_matrix = df2.corr()
-            fig9 = px.imshow(
-            correlation_matrix,
-            zmin=-1,
-            zmax=1,
-            color_continuous_scale='BuPu',
-            labels={'x': 'Features'}
+            ##correlation_matrix = df2.corr()
+            ##fig9 = px.imshow(
+            ##correlation_matrix,
+            ##zmin=-1,
+            ##zmax=1,
+            ##color_continuous_scale='BuPu',
+            ##labels={'x': 'Features'}
         )
           
-            st.title("Heatmap of Correlation")
-            fig9.update_traces(showscale=False)
-            for i in range(len(correlation_matrix.columns)):
-                for j in range(len(correlation_matrix.index)):
-                    fig9.add_annotation(
-                    x=i,
-                    y=j,
-                    text=f'{correlation_matrix.iloc[j, i]:.2f}',
-                    showarrow=False,
-                    font=dict(size=14)
+            ##st.title("Heatmap of Correlation")
+            ##fig9.update_traces(showscale=False)
+            ##for i in range(len(correlation_matrix.columns)):
+                ##for j in range(len(correlation_matrix.index)):
+                    ##fig9.add_annotation(
+                   ## x=i,
+                    ##y=j,
+                    ##text=f'{correlation_matrix.iloc[j, i]:.2f}',
+                    ##showarrow=False,
+                    ##font=dict(size=14)
 
-        )
-            st.plotly_chart(fig9)
+       ## )
+            ##st.plotly_chart(fig9)
        
                 
             
