@@ -251,7 +251,7 @@ elif selected_option == "Visualizations":
             ##zmax=1,
             ##color_continuous_scale='BuPu',
             ##labels={'x': 'Features'}
-        )
+        
           
             ##st.title("Heatmap of Correlation")
             ##fig9.update_traces(showscale=False)
