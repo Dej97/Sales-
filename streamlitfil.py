@@ -198,24 +198,15 @@ elif selected_option == "Visualizations":
             grouped = df.groupby('Product').agg({ 'Price Each': 'sum', 'Sales': 'sum', 'Quantity Ordered': 'sum' }).reset_index()
             grouped['Profit margin'] = ((grouped['Sales'] - grouped['Price Each']) / grouped['Sales']*100) 
             # Create a scatter plot
-           fig = px.scatter(
-                grouped, x='Quantity Ordered', y='Sales', text='Product', title='Sales vs Quantity Ordered'
-            )
+           fig = px.scatter(data, x='Price Each', y='Sales', title='Scatter Plot for Sales vs. Price Each')
+
+            # Customize the appearance (optional)
+            fig.update_traces(marker=dict(size=5, opacity=0.5), selector=dict(mode='markers+text'))
+            fig.update_layout(xaxis_title='Price Each', yaxis_title='Sales')
             
-            # Customize the appearance of the scatter plot
-            fig.update_traces(
-                marker=dict(size=8, opacity=0.5),
-                textfont_size=10,
-                hoverinfo='x+y+text',  # Show 'Quantity Ordered', 'Sales', and 'Product' on hover
-            )
-            
-            # Add labels to the axes
-            fig.update_layout(xaxis_title='Quantity Ordered', yaxis_title='Sales')
-            
-            # Show the plot in your Streamlit app
+            # Display the plot using Streamlit
             st.plotly_chart(fig)
-            
-            
+                        
 
 
 
