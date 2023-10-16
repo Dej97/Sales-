@@ -185,6 +185,8 @@ elif selected_option == "Visualizations":
 
 
     elif visualization_option == "Scatter Plot":
+        with col2:
+         
          
             # Create a scatter plot
             st.write("Display a scatter plot here.")
@@ -213,6 +215,7 @@ elif selected_option == "Visualizations":
             ##st.plotly_chart(fig8)
 
     elif visualization_option == "HeatMap":
+        with col2:
          
             # Create a HeatMap
 
