@@ -208,18 +208,6 @@ elif selected_option == "Visualizations":
             fig8 = px.scatter_matrix(grouped, dimensions=["Product", "Price Each", "Sales", "ORDERS", "Profit margin"])
             fig8.update_traces(marker=dict(color="green"), selector=dict(mode="markers"))
 
-            # Apply custom CSS to make the plot full-page
-            st.markdown(
-                f"""
-                <style>
-                    .stPlotlyChart {{
-                        width: 100%;
-                        height: 50vh;
-                    }}
-                </style>
-                """,
-                unsafe_allow_html=True,
-            )
 
             st.title("Scatter Matrix Plot")
             st.plotly_chart(fig8)
@@ -272,19 +260,7 @@ elif selected_option == "Visualizations":
             color_continuous_scale='BuPu',
             labels={'x': 'Features'}
         )
-        # Apply custom CSS to make the plot full-page
-            st.markdown(
-                f"""
-                <style>
-                    .stPlotlyChart {{
-                        width: 100%;
-                        height: 60vh;
-                    }}
-                </style>
-                """,
-                unsafe_allow_html=True,
-            )
-
+          
             st.title("Heatmap of Correlation")
             fig9.update_traces(showscale=False)
             for i in range(len(correlation_matrix.columns)):
