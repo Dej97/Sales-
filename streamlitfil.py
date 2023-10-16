@@ -189,17 +189,25 @@ elif selected_option == "Visualizations":
          
          
             # Create a scatter plot
-            st.write("Display a scatter plot here.")
+           
+            
             
             df = pd.read_csv('Sales Data.csv')
             
             grouped = df[['Product', 'Price Each', 'Sales','Quantity Ordered']]
             grouped = df.groupby('Product').agg({ 'Price Each': 'sum', 'Sales': 'sum', 'Quantity Ordered': 'sum' }).reset_index()
             grouped['Profit margin'] = ((grouped['Sales'] - grouped['Price Each']) / grouped['Sales']*100) 
-            fig = px.scatter(grouped, x='Price Each', y='Sales', text='Product', title='Price vs Sales')
-
+            # Create a scatter plot
+            fig = px.scatter(
+                grouped, x='Price Each', y='Sales', text='Product', title='Price vs Sales'
+            )
+            
             # Customize the appearance of the scatter plot
-            fig.update_traces(marker=dict(size=8, opacity=0.5), textfont_size=10)
+            fig.update_traces(
+                marker=dict(size=8, opacity=0.5),
+                textfont_size=10,
+                hoverinfo='x+y+text',  # Show 'Price Each', 'Sales', and 'Product' on hover
+            )
             
             # Add labels to the axes
             fig.update_layout(xaxis_title='Price Each', yaxis_title='Sales')
