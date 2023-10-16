@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd 
 import plotly.express as px 
-import matplotlib.pyplot as plt
+import matplotlib as plt
 from sklearn.preprocessing import LabelEncoder
 import seaborn as sbr
 
@@ -203,7 +203,9 @@ elif selected_option == "Visualizations":
 
             grouped["Product"] = lb.fit_transform(grouped["Product"])
          
-          fig8 = px.scatter_matrix(grouped, dimensions=["Product", "Price Each", "Sales", "ORDERS", "Profit margin"])
+            
+
+            fig8 = px.scatter_matrix(grouped, dimensions=["Product", "Price Each", "Sales", "ORDERS", "Profit margin"])
             fig8.update_traces(marker=dict(color="green"), selector=dict(mode="markers"))
 
             # Apply custom CSS to make the plot full-page
@@ -221,7 +223,7 @@ elif selected_option == "Visualizations":
 
             st.title("Scatter Matrix Plot")
             st.plotly_chart(fig8)
-            
+
     elif visualization_option == "HeatMap":
          
             # Create a HeatMap
