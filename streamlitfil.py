@@ -185,7 +185,7 @@ elif selected_option == "Visualizations":
 
 
     elif visualization_option == "Scatter Plot":
-        with col2:
+        with col3:
          
          
             # Create a scatter plot
@@ -208,7 +208,8 @@ elif selected_option == "Visualizations":
             
             # Show the plot in your Streamlit app
             st.plotly_chart(fig)
-                                    
+        with col1:
+            st.write('Positive Correlation: If you observe  general trend where products with higher prices tend to have higher sales, this suggests that higher prices might not be a barrier to sales, and you can potentially increase profit margins by raising prices on such products.')
 
 
 
