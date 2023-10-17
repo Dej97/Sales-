@@ -244,12 +244,14 @@ elif selected_option == "Visualizations":
             
             correlation_matrix = df2.corr()
 
-            # Create the heatmap using Plotly Express
-            fig = px.imshow(correlation_matrix, vmin=-1, vmax=1, color_continuous_scale='BuPu', labels={'index': 'Features', 'column': 'Features'})
+            st.write("Correlation Matrix:")
+            st.write(correlation_matrix)
             
-            # Display the heatmap using Streamlit
-            st.write("Display a HeatMap here.")
-            st.plotly_chart(fig)
+
+
+
+
+
 
             
 
