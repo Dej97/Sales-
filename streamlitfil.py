@@ -217,7 +217,8 @@ elif selected_option == "Visualizations":
             ##st.plotly_chart(fig8)
 
     elif visualization_option == "HeatMap":
-        with col2:
+        
+        
          
             # Create a HeatMap
 
@@ -241,6 +242,18 @@ elif selected_option == "Visualizations":
             df2['Cumulative Profit margin'] = df2.groupby('Date')['Profit margin'].cumsum()
             
             df2.drop(['Date','Product'],axis = 1,inplace = True)
+
+            st.markdown(
+                f"""
+                <style>
+                    .stPlotlyChart {{
+                        width: 100%;
+                        height: 50vh;
+                    }}
+                </style>
+                """,
+                unsafe_allow_html=True,
+            )
             
             correlation_matrix = df2.corr()
 
