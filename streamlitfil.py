@@ -221,7 +221,7 @@ elif selected_option == "Visualizations":
          
             # Create a HeatMap
 
-            st.write("Display a HeatMap here.")
+            
             
             df = pd.read_csv('Sales Data.csv')
             
@@ -241,6 +241,15 @@ elif selected_option == "Visualizations":
             df2['Cumulative Profit margin'] = df2.groupby('Date')['Profit margin'].cumsum()
             
             df2.drop(['Date','Product'],axis = 1,inplace = True)
+            
+            correlation_matrix = df2.corr()
+
+            # Create the heatmap using Plotly Express
+            fig = px.imshow(correlation_matrix, vmin=-1, vmax=1, color_continuous_scale='BuPu', labels={'index': 'Features', 'column': 'Features'})
+            
+            # Display the heatmap using Streamlit
+            st.write("Display a HeatMap here.")
+            st.plotly_chart(fig)
 
             
 
