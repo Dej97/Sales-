@@ -318,7 +318,7 @@ elif selected_option == "Report":
 
         st.title("Total Orders : 209K ")
 
-        st.title("Total Products :186K ")
+        st.title("Total Products : 186K ")
 
         df = pd.read_csv('Sales Data.csv')
 
